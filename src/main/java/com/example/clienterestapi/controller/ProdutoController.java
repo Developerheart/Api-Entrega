@@ -15,6 +15,7 @@ import org.modelmapper.ModelMapper;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import lombok.extern.log4j.Log4j2;
 
 import javax.validation.Valid;
@@ -36,7 +37,7 @@ public class ProdutoController {
 
 
     @GetMapping("/ListaProdutos")
-    public ResponseEntity<List<ProdutoResponse>> produtoResponseList(){
+    public ResponseEntity<List<ProdutoResponse>> produtoResponseList() {
 
         List<Produto> produtoList = produtoServivce.allProdutos();
 
@@ -50,7 +51,7 @@ public class ProdutoController {
     }
 
     @GetMapping("/ListaProduto/{id}")
-    public ResponseEntity<ProdutoResponse> produtoPorId(@PathVariable(name = "id") Long id){
+    public ResponseEntity<ProdutoResponse> produtoPorId(@PathVariable(name = "id") Long id) {
         Produto produto;
         try {
             produto = produtoServivce.porid(id);
@@ -64,11 +65,11 @@ public class ProdutoController {
         }
     }
     @DeleteMapping("/ListaProdutos/delete/{id}")
-    public String apagarporID(@PathVariable(name = "id") Long id){
+    public String apagarporID(@PathVariable(name = "id") Long id) {
         try {
             produtoServivce.deleteById(id);
             return "Excluido com sucesso!!!";
-        }catch (Exception e){
+        } catch (Exception e) {
             log.error(e.getMessage());
             return "error ao excluir..";
 //            return ResponseEntity.badRequest().body(ProdutoResponse.builder());
@@ -76,7 +77,7 @@ public class ProdutoController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProdutoResponse> update(@PathVariable(name = "id") Long id, @RequestBody Produto produto){
+    public ResponseEntity<ProdutoResponse> update(@PathVariable(name = "id") Long id, @RequestBody Produto produto) {
         try {
             Produto prod = produtoServivce.porid(id);
             ModelMapper modelMapper = new ModelMapper();

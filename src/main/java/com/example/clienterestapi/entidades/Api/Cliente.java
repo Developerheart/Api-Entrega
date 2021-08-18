@@ -1,12 +1,16 @@
 package com.example.clienterestapi.entidades.Api;
 
+import com.example.clienterestapi.validations.ValidationGroups;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
+import org.hibernate.validator.constraints.UniqueElements;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import javax.validation.groups.Default;
 import java.util.Date;
 
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
@@ -20,6 +24,7 @@ public class Cliente {
     @EqualsAndHashCode.Include
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @NotNull(message = "Defina o ID de um cliente", groups = ValidationGroups.ClienteId.class)
     private Long id;
 
     @NotBlank

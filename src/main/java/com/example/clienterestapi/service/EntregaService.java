@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
+import java.time.OffsetDateTime;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class EntregaService {
@@ -32,10 +35,20 @@ public class EntregaService {
         entrega.setCliente(cliente);
 
         entrega.setStatusEntrega(Status.AGUARDO);
-        entrega.setDataPedido(LocalDateTime.now());
+        entrega.setDataPedido(OffsetDateTime.now());
 //        entrega.setDataEntregue(LocalDateTime.now());
         return entregaRepository.save(entrega);
 
+    }
+
+    @Transactional
+    public List<Entrega> list(){
+        return entregaRepository.findAll();
+    }
+
+    @Transactional
+    public Optional<Entrega> findById(Long id){
+        return entregaRepository.findById(id);
     }
 
 }
