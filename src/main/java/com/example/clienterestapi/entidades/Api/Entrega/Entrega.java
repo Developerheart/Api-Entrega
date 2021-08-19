@@ -1,26 +1,19 @@
 package com.example.clienterestapi.entidades.Api.Entrega;
 
-import com.example.clienterestapi.entidades.Api.Produto;
+import com.example.clienterestapi.validations.ValidationGroups;
 import com.example.clienterestapi.entidades.Api.enums.Status;
 import com.example.clienterestapi.entidades.Api.Cliente;
 import com.example.clienterestapi.entidades.Api.Destinatario;
-import com.example.clienterestapi.validations.ValidationGroups;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.Valid;
-import javax.validation.constraints.AssertTrue;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import javax.validation.groups.ConvertGroup;
 import javax.validation.groups.Default;
 import java.math.BigDecimal;
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Getter
