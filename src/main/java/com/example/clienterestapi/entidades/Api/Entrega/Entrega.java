@@ -44,7 +44,7 @@ public class Entrega {
     private BigDecimal taxa;
 
     @NotNull
-    private Long idProduto;
+    private String codgerealList;
 
     @Enumerated(EnumType.STRING)
     @JsonProperty(access = JsonProperty.Access.READ_ONLY)

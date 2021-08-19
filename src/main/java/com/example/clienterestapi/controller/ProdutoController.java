@@ -24,19 +24,19 @@ import javax.validation.Valid;
 @RestController
 @AllArgsConstructor
 @NoArgsConstructor
-@RequestMapping("Api/")
+@RequestMapping("Produto/")
 public class ProdutoController {
     @Autowired
     private ProdutoServivce produtoServivce;
 
-    @PostMapping("/NovoProduto")
+    @PostMapping("/novo")
     @ResponseStatus(HttpStatus.CREATED)
     public Produto novoProduto(@Valid @RequestBody Produto produto) {
         return produtoServivce.novoProduto(produto);
     }
 
 
-    @GetMapping("/ListaProdutos")
+    @GetMapping("/lista")
     public ResponseEntity<List<ProdutoResponse>> produtoResponseList() {
 
         List<Produto> produtoList = produtoServivce.allProdutos();
@@ -50,7 +50,7 @@ public class ProdutoController {
         return ResponseEntity.ok(produtoResponseList);
     }
 
-    @GetMapping("/ListaProduto/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ProdutoResponse> produtoPorId(@PathVariable(name = "id") Long id) {
         Produto produto;
         try {
@@ -64,7 +64,7 @@ public class ProdutoController {
 
         }
     }
-    @DeleteMapping("/ListaProdutos/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public String apagarporID(@PathVariable(name = "id") Long id) {
         try {
             produtoServivce.deleteById(id);

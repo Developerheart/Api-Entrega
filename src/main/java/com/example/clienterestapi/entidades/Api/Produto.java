@@ -35,6 +35,8 @@ public class Produto {
     @Size(max = 255)
     private String text;
 
+    @ManyToMany
+
     @NotNull(message = "Campo codGeral não pode ser vazio ou nulo")
     private Long codGeral;
 

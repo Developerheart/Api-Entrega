@@ -2,8 +2,6 @@ package com.example.clienterestapi.exceptions;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.*;
-import org.springframework.lang.Nullable;
-
 import java.time.LocalDateTime;
 import java.util.List;
 

@@ -17,13 +17,13 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
-    @PostMapping("/NovoCliente")
+    @PostMapping("/novo")
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente adicionar(@Valid @RequestBody Cliente cliente) {
         return clienteRepository.save(cliente);
     }
 
-    @GetMapping("/ListaClientes")
+    @GetMapping("/lista")
     public List<Cliente> listar() {
         return clienteRepository.findAll();
     }
